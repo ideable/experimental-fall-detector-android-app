@@ -23,6 +23,7 @@ SOFTWARE.
 */
 package altermarkive.guardian;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -64,7 +65,7 @@ public class Telephony extends BroadcastReceiver {
     public static void silence(Context context) {
         try {
             TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-            Method getITelephony = manager.getClass().getDeclaredMethod("getITelephony");
+            @SuppressLint("SoonBlockedPrivateApi") Method getITelephony = manager.getClass().getDeclaredMethod("getITelephony");
             getITelephony.setAccessible(true);
             Object iTelephony = getITelephony.invoke(manager);
             Method silenceRinger = iTelephony.getClass().getDeclaredMethod("silenceRinger");
@@ -89,7 +90,7 @@ public class Telephony extends BroadcastReceiver {
         silence(context);
         try {
             TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-            Method getITelephony = manager.getClass().getDeclaredMethod("getITelephony");
+            @SuppressLint("SoonBlockedPrivateApi") Method getITelephony = manager.getClass().getDeclaredMethod("getITelephony");
             getITelephony.setAccessible(true);
             Object iTelephony = getITelephony.invoke(manager);
             Method answerRingingCall = iTelephony.getClass().getDeclaredMethod("answerRingingCall");

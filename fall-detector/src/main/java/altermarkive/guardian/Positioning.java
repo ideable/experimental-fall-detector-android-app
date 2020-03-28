@@ -23,6 +23,7 @@ SOFTWARE.
 */
 package altermarkive.guardian;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -57,6 +58,7 @@ public class Positioning implements LocationListener {
         }
     }
 
+    @SuppressLint("MissingPermission")
     private Positioning(Context context) {
         this.context = context;
         LocationManager manager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
@@ -71,6 +73,7 @@ public class Positioning implements LocationListener {
         }
     }
 
+    @SuppressLint("MissingPermission")
     private void run() {
         enforce(context);
         synchronized (lock) {
@@ -82,6 +85,7 @@ public class Positioning implements LocationListener {
         }
     }
 
+    @SuppressLint("MissingPermission")
     private void reset() {
         LocationManager manager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         manager.removeUpdates(this);

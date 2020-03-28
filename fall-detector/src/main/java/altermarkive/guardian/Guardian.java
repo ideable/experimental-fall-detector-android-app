@@ -46,13 +46,13 @@ public class Guardian extends Service {
     @SuppressWarnings("deprecation")
     @Override
     public int onStartCommand(Intent intent, int flags, int startID) {
-        long now = System.currentTimeMillis();
-        Notification notification = new Notification(
-                android.R.drawable.stat_sys_warning, "Guardian is active.", now);
-        Intent about = new Intent(this, About.class);
-        PendingIntent pending = PendingIntent.getActivity(this, 0, about, 0);
-        notification.setLatestEventInfo(this, "Guardian", "Guardian is active", pending);
-        startForeground(1, notification);
+//        long now = System.currentTimeMillis();
+//        Notification notification = new Notification(
+//                android.R.drawable.stat_sys_warning, "Guardian is active.", now);
+//        Intent about = new Intent(this, About.class);
+//        PendingIntent pending = PendingIntent.getActivity(this, 0, about, 0);
+//        notification.setLatestEventInfo(this, "Guardian", "Guardian is active", pending);
+//        startForeground(1, notification);
         return (START_STICKY);
     }
 

@@ -26,6 +26,7 @@ SOFTWARE.
 // http://www-users.cs.york.ac.uk/~fisher/mkfilter/
 
 #include "altermarkive_guardian_Detector.h"
+#include <stdlib.h>
 #include <string.h>
 #include <android/looper.h>
 #include <math.h>
@@ -152,6 +153,7 @@ void Process() {
         }
         if (LYING_AVERAGE_Z_LPF < (Sum / Count)) {
             State->Lying[At] = 1;
+            LOG(ANDROID_LOG_INFO, "Lying: 1");
             Call();
         }
     }
